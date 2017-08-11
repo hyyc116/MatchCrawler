@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 2017-8-10 18:56:01 by Hibernate Tools 5.2.3.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class dynamic-insert="false" dynamic-update="false" mutable="true" name="org.hyatt.model.Item" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="Item">
+        <id name="id" type="long">
+            <column name="id"/>
+            <generator class="assigned"/>
+        </id>
+        <property generated="never" lazy="false" name="cost" optimistic-lock="true" type="int" unique="false">
+            <column name="cost" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="localizedName" optimistic-lock="true" type="string" unique="false">
+            <column name="localized_name"/>
+        </property>
+        <property generated="never" lazy="false" name="name" optimistic-lock="true" type="string" unique="false">
+            <column name="name"/>
+        </property>
+        <property generated="never" lazy="false" name="recipe" optimistic-lock="true" type="int" unique="false">
+            <column name="recipe" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="secretShop" optimistic-lock="true" type="int" unique="false">
+            <column name="secret_shop" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="sideShop" optimistic-lock="true" type="int" unique="false">
+            <column name="side_shop" not-null="true"/>
+        </property>
+    </class>
+</hibernate-mapping>

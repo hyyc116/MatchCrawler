@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd" >
+
+<hibernate-reverse-engineering>
+	<table-filter match-name="Hero" match-catalog="bptrainer"></table-filter>
+	<table-filter match-name="Item" match-catalog="bptrainer"></table-filter>
+	<table-filter match-name="League" match-catalog="bptrainer"></table-filter>
+	<table-filter match-name="MatchObj" match-catalog="bptrainer"></table-filter>
+	<table-filter match-name="MatchObj_Player"
+		match-catalog="bptrainer">
+	</table-filter>
+	<table-filter match-name="Player" match-catalog="bptrainer"></table-filter>
+</hibernate-reverse-engineering>
