@@ -1,5 +1,5 @@
 package org.hyatt.model;
-// Generated 2017-8-10 18:56:01 by Hibernate Tools 5.2.3.Final
+// Generated 2017-8-15 9:38:11 by Hibernate Tools 5.2.3.Final
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

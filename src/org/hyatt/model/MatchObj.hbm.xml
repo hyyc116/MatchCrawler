@@ -1,25 +1,67 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Generated 2017-8-10 18:56:01 by Hibernate Tools 5.2.3.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-8-15 9:38:11 by Hibernate Tools 5.2.3.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
     <class dynamic-insert="false" dynamic-update="false" mutable="true" name="org.hyatt.model.MatchObj" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="MatchObj">
-        <id name="id" type="long">
-            <column name="id"/>
+        <id name="matchId" type="long">
+            <column name="match_id"/>
             <generator class="assigned"/>
         </id>
+        <property generated="never" lazy="false" name="barracksStatusDire" optimistic-lock="true" type="int" unique="false">
+            <column name="barracks_status_dire" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="barracksStatusRadiant" optimistic-lock="true" type="int" unique="false">
+            <column name="barracks_status_radiant" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="cluster" optimistic-lock="true" type="int" unique="false">
+            <column name="cluster" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="direScore" optimistic-lock="true" type="int" unique="false">
+            <column name="dire_score" not-null="true"/>
+        </property>
         <property generated="never" lazy="false" name="direTeamId" optimistic-lock="true" type="int" unique="false">
             <column name="dire_team_id" not-null="true"/>
         </property>
-        <property generated="never" lazy="false" name="lobbyTime" optimistic-lock="true" type="int" unique="false">
-            <column name="lobby_time" not-null="true"/>
+        <property generated="never" lazy="false" name="duration" optimistic-lock="true" type="long" unique="false">
+            <column name="duration" not-null="true"/>
         </property>
-        <property generated="never" lazy="false" name="matchId" optimistic-lock="true" type="long" unique="false">
-            <column name="match_id" not-null="true"/>
+        <property generated="never" lazy="false" name="engine" optimistic-lock="true" type="int" unique="false">
+            <column name="engine" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="firstBloodTime" optimistic-lock="true" type="long" unique="false">
+            <column name="first_blood_time" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="flags" optimistic-lock="true" type="int" unique="false">
+            <column name="flags" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="gameMode" optimistic-lock="true" type="int" unique="false">
+            <column name="game_mode" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="humanPlayers" optimistic-lock="true" type="int" unique="false">
+            <column name="human_players" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="leagueid" optimistic-lock="true" type="int" unique="false">
+            <column name="leagueid" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="lobbyType" optimistic-lock="true" type="int" unique="false">
+            <column name="lobby_type" not-null="true"/>
         </property>
         <property generated="never" lazy="false" name="matchSeqNum" optimistic-lock="true" type="long" unique="false">
             <column name="match_seq_num" not-null="true"/>
         </property>
+        <property generated="never" lazy="false" name="negativeVotes" optimistic-lock="true" type="int" unique="false">
+            <column name="negative_votes" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="positiveVotes" optimistic-lock="true" type="int" unique="false">
+            <column name="positive_votes" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="radiantScore" optimistic-lock="true" type="int" unique="false">
+            <column name="radiant_score" not-null="true"/>
+        </property>
         <property generated="never" lazy="false" name="radiantTeamId" optimistic-lock="true" type="int" unique="false">
             <column name="radiant_team_id" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="radiantWin" optimistic-lock="true" type="boolean" unique="false">
+            <column name="radiant_win" not-null="true"/>
         </property>
         <property generated="never" lazy="false" name="seriesId" optimistic-lock="true" type="int" unique="false">
             <column name="series_id" not-null="true"/>
@@ -29,6 +71,12 @@
         </property>
         <property generated="never" lazy="false" name="startTime" optimistic-lock="true" type="long" unique="false">
             <column name="start_time" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="towerStatusDire" optimistic-lock="true" type="int" unique="false">
+            <column name="tower_status_dire" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="towerStatusRadiant" optimistic-lock="true" type="int" unique="false">
+            <column name="tower_status_radiant" not-null="true"/>
         </property>
     </class>
 </hibernate-mapping>

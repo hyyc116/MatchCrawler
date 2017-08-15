@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Generated 2017-8-10 18:56:01 by Hibernate Tools 5.2.3.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-8-15 9:38:11 by Hibernate Tools 5.2.3.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
     <class dynamic-insert="false" dynamic-update="false" mutable="true" name="org.hyatt.model.Player" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="Player">
         <id name="id" type="long">
@@ -9,11 +9,92 @@
         <property generated="never" lazy="false" name="accountId" optimistic-lock="true" type="long" unique="false">
             <column name="account_id" not-null="true"/>
         </property>
+        <property generated="never" lazy="false" name="assists" optimistic-lock="true" type="int" unique="false">
+            <column name="assists" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="backpack0" optimistic-lock="true" type="int" unique="false">
+            <column name="backpack_0" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="backpack1" optimistic-lock="true" type="int" unique="false">
+            <column name="backpack_1" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="backpack2" optimistic-lock="true" type="int" unique="false">
+            <column name="backpack_2" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="deaths" optimistic-lock="true" type="int" unique="false">
+            <column name="deaths" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="denies" optimistic-lock="true" type="int" unique="false">
+            <column name="denies" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="gold" optimistic-lock="true" type="int" unique="false">
+            <column name="gold" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="goldPerMin" optimistic-lock="true" type="int" unique="false">
+            <column name="gold_per_min" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="goldSpent" optimistic-lock="true" type="int" unique="false">
+            <column name="gold_spent" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="heroDamage" optimistic-lock="true" type="int" unique="false">
+            <column name="hero_damage" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="heroHealing" optimistic-lock="true" type="int" unique="false">
+            <column name="hero_healing" not-null="true"/>
+        </property>
         <property generated="never" lazy="false" name="heroId" optimistic-lock="true" type="java.lang.Long" unique="false">
             <column name="hero_id"/>
         </property>
+        <property generated="never" lazy="false" name="item0" optimistic-lock="true" type="int" unique="false">
+            <column name="item_0" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="item1" optimistic-lock="true" type="int" unique="false">
+            <column name="item_1" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="item2" optimistic-lock="true" type="int" unique="false">
+            <column name="item_2" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="item3" optimistic-lock="true" type="int" unique="false">
+            <column name="item_3" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="item4" optimistic-lock="true" type="int" unique="false">
+            <column name="item_4" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="item5" optimistic-lock="true" type="int" unique="false">
+            <column name="item_5" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="kills" optimistic-lock="true" type="int" unique="false">
+            <column name="kills" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="lastHits" optimistic-lock="true" type="int" unique="false">
+            <column name="last_hits" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="leaverStatus" optimistic-lock="true" type="int" unique="false">
+            <column name="leaver_status" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="level" optimistic-lock="true" type="int" unique="false">
+            <column name="level" not-null="true"/>
+        </property>
         <property generated="never" lazy="false" name="playerSlot" optimistic-lock="true" type="int" unique="false">
             <column name="player_slot" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="scaledHeroDamage" optimistic-lock="true" type="int" unique="false">
+            <column name="scaled_hero_damage" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="scaledHeroHealing" optimistic-lock="true" type="int" unique="false">
+            <column name="scaled_hero_healing" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="scaledTowerDamage" optimistic-lock="true" type="int" unique="false">
+            <column name="scaled_tower_damage" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="towerDamage" optimistic-lock="true" type="int" unique="false">
+            <column name="tower_damage" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="xpPerMin" optimistic-lock="true" type="int" unique="false">
+            <column name="xp_per_min" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="matchId" optimistic-lock="true" type="java.lang.Long" unique="false">
+            <column name="match_id"/>
         </property>
     </class>
 </hibernate-mapping>

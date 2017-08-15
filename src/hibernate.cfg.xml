@@ -12,5 +12,9 @@
   <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
   <mapping resource="org/hyatt/model/Hero.hbm.xml"/>
   <mapping resource="org/hyatt/model/Item.hbm.xml"/>
+  <mapping resource="org/hyatt/model/League.hbm.xml"/>
+  <mapping class="org.hyatt.model.MatchObj"/>
+  <mapping class="org.hyatt.model.Player"/>
  </session-factory>
+ 
 </hibernate-configuration>

@@ -1,0 +1,83 @@
+public MatchObj(models.MatchObj match) {
+		this.barracksStatusDire = match.getBarracks_status_dire();
+		this.barracksStatusRadiant = match.getBarracks_status_radiant();
+		this.cluster = match.getCluster();
+		this.direScore = match.getDire_score();
+		this.direTeamId = match.getDire_team_id();
+		this.duration = match.getDuration();
+		this.engine = match.getEngine();
+		this.firstBloodTime = match.getFirst_blood_time();
+		this.flags = match.getFlags();
+		this.gameMode = match.getGame_mode();
+		this.humanPlayers = match.getHuman_players();
+		this.leagueid = match.getLeagueid();
+		this.lobbyType = match.getLobby_type();
+		this.matchId = match.getMatch_id();
+		this.matchSeqNum = match.getMatch_seq_num();
+		this.negativeVotes = match.getNegative_votes();
+		this.positiveVotes = match.getPositive_votes();
+		this.radiantScore = match.getRadiant_score();
+		this.radiantTeamId = match.getRadiant_team_id();
+		this.radiantWin = match.isRadiant_win();
+		this.seriesId = match.getSeries_id();
+		this.seriesType = match.getSeries_type();
+		this.startTime = match.getStart_time();
+		this.towerStatusDire = match.getTower_status_dire();
+		this.towerStatusRadiant = match.getTower_status_radiant();
+
+	}
+
+public League(models.League league) {
+		this.leagueid = league.getLeagueid();
+		this.description = league.getDescription();
+		this.itemdef = league.getItemdef();
+		this.name = league.getName();
+		this.tournamentUrl = league.getTournament_url();
+	}
+
+public Item(models.Item item) {
+		this.id = item.getId();
+		this.cost = item.getCost();
+		this.localizedName = item.getLocalized_name();
+		this.name = item.getName();
+		this.recipe = item.getRecipe();
+		this.secretShop = item.getSecret_shop();
+		this.sideShop = item.getSide_shop();
+	}
+
+public Hero(models.Hero hero) {
+		this.id = hero.getId();
+		localizedName = hero.getLocalized_name();
+		name = hero.getName();
+	}
+
+this.accountId = player.getAccount_id();
+		this.assists = player.getAssists();
+		this.backpack0 = player.getBackpack_0();
+		this.backpack1 = player.getBackpack_1();
+		this.backpack2 = player.getBackpack_2();
+		this.deaths = player.getDeaths();
+		this.denies = player.getDenies();
+		this.gold = player.getGold();
+		this.goldPerMin = player.getGold_per_min();
+		this.goldSpent = player.getGold_spent();
+		this.heroDamage = player.getHero_damage();
+		this.heroHealing = player.getHero_healing();
+		this.heroId = player.getHero_id();
+		this.item0 = player.getItem_0();
+		this.item1 = player.getItem_1();
+		this.item2 = player.getItem_2();
+		this.item3 = player.getItem_3();
+		this.item4 = player.getItem_4();
+		this.item5 = player.getItem_5();
+		this.kills = player.getKills();
+		this.lastHits = player.getLast_hits();
+		this.leaverStatus = player.getLeaver_status();
+		this.level = player.getLevel();
+		this.playerSlot = player.getPlayer_slot();
+		this.scaledHeroDamage = player.getScaled_hero_damage();
+		this.scaledHeroHealing = player.getScaled_hero_healing();
+		this.scaledTowerDamage = player.getScaled_tower_damage();
+		this.towerDamage = player.getTower_damage();
+		this.xpPerMin = player.getXp_per_min();
+	
