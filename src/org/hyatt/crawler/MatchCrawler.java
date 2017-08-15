@@ -52,6 +52,7 @@ public class MatchCrawler {
 		List<models.MatchObj> matches = DOTA2_API.get_match_history_by_seq_num(start_seq, 100);
 		for (int mi=1;mi<matches.size();mi++ ) {
 			models.MatchObj match = matches.get(mi);
+			if(match.getHuman_players()!=10) continue;
 			MatchObj obj = new MatchObj(match);
 			session.saveOrUpdate(obj);
 //			System.out.println("matchid:"+obj.getMatchId());
@@ -72,19 +73,34 @@ public class MatchCrawler {
 	
 	public static void fecth_matches(){
 		long start_seq=-1;
-		int i=0;
-		while(i<12){
-			if(db_index%10==0){
+		while(true){
+			//每5轮对数据库进行一次提交
+			if(db_index%5==0){
 				if(db_index>0){
 					closeSession();
 				}
 			setSession();
 			}
+			// 根据match_seq_num抓取历史记录
 			start_seq = get_matches_by_seq(start_seq);
-			i+=1;
+			// 休息5秒钟
+			try {
+				Thread.sleep(5000);
+				LOGGER.info("Matches crawled:"+db_index+",5 seconds sleep after one request!");
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			
+			//每5000条休息
+			if(db_index%100==0){
+				try {
+					LOGGER.info("Matches Crawled:"+db_index+",5 minutes sleep after 100 request!");
+					Thread.sleep(1000*60*5);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+			}
 		}
-		closeSession();
-		closeFactory();
 	}
 
 	public static void main(String[] args) {
