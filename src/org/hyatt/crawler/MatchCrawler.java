@@ -69,10 +69,16 @@ public class MatchCrawler {
 			for (int i = 0; i < match.getPlayers().size(); i++) {
 				models.Player player = match.getPlayers().get(i);
 				Long matchid = match.getMatch_id();
-				Long id = Long.parseLong(System.currentTimeMillis() +""+ (mi + 1)+""+(i+1));
-//				System.out.println("match id:" + matchid + "\t" + id);
+				Long id = Long.parseLong(System.currentTimeMillis() + "" + (mi + 1) + "" + (i + 1));
+				// System.out.println("match id:" + matchid + "\t" + id);
 				Player pobj = new Player(player, matchid, id);
 				session.save(pobj);
+			}
+
+			// 每1000轮对数据库进行一次提交
+			if (db_index % 1000 == 1) {
+				closeSession();
+				setSession();
 			}
 			db_index += 1;
 			last_seq = obj.getMatchSeqNum();
@@ -82,17 +88,12 @@ public class MatchCrawler {
 
 	public static void fecth_matches() {
 		while (true) {
-			// 每5轮对数据库进行一次提交
-			if (db_index % 5 == 0) {
-				closeSession();
-				setSession();
-			}
 			// 根据match_seq_num抓取历史记录
 			start_seq = get_matches_by_seq(start_seq);
 			// 休息5秒钟
 			try {
 				LOGGER.info("Matches crawled:" + db_index + ", 10 seconds sleep after one request!");
-				Thread.sleep(1000*10);
+				Thread.sleep(1000 * 10);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
