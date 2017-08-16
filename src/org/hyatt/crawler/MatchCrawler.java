@@ -1,6 +1,9 @@
 package org.hyatt.crawler;
 
+import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.logging.Logger;
 
 import org.hibernate.Session;
@@ -9,8 +12,10 @@ import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 import org.hyatt.model.MatchObj;
 import org.hyatt.model.Player;
+import org.hyatt.model.Stats;
 
 import util.DOTA2_API;
+import util.Utility;
 
 public class MatchCrawler {
 
@@ -30,7 +35,7 @@ public class MatchCrawler {
 		} else {
 			start_seq = -1;
 		}
-		LOGGER.info("Initialize session factory! There are " + db_index
+		LOGGER.info("Match Crawler, Version 2.0. \n === Initialize session factory! There are " + db_index
 				+ " matches existing in database; starting seq num:" + start_seq);
 	}
 
@@ -76,14 +81,56 @@ public class MatchCrawler {
 			}
 
 			// 每1000轮对数据库进行一次提交
-			if (db_index % 1000 == 1) {
+			if (db_index % 1 == 0) {
+				//提交1000次的数据
 				closeSession();
+				//对数据库进行统计
+				saveStats();
+				//重新打开session
 				setSession();
 			}
 			db_index += 1;
 			last_seq = obj.getMatchSeqNum();
 		}
 		return last_seq;
+	}
+	
+	public static void saveStats(){
+		setSession();
+		//插入后获得比赛记录数量
+		List<MatchObj> objs = session.createQuery("from MatchObj order by matchSeqNum").list();
+		long total_count = objs.size();
+		Date start_time = Utility.get_date(objs.get(0).getStartTime());
+		Date end_time = Utility.get_date(objs.get((int) (total_count-1)).getStartTime());
+		Date now = new Date();
+		Stats stats = new Stats();
+		stats.setLastTime(end_time);
+		stats.setStartTime(start_time);
+		stats.setTotalcount(total_count);
+		stats.setUpdatetime(now);
+		stats.setId(10086);
+		// 数据统计结果
+		Map<Integer, Integer> mode_dict = new HashMap<Integer,Integer>();
+		Map<Integer, Integer> cluster_dict = new HashMap<Integer,Integer>();
+		for(MatchObj m:objs){
+			int key = m.getGameMode();
+			int mode_count = mode_dict.getOrDefault(key, 0)+1;
+			mode_dict.put(key, mode_count);
+			
+			int ckey = m.getCluster();
+			int cluster_count = cluster_dict.getOrDefault(ckey, 0)+1;
+			cluster_dict.put(ckey, cluster_count);
+		}
+		
+		String mode_str = Utility.mapToStr(mode_dict);
+		stats.setGmDict(mode_str.toString());
+		
+		String cluster_str = Utility.mapToStr(cluster_dict);
+		stats.setClusterDict(cluster_str);
+		// 保存对象，每个对象的ID 都是10086
+		session.saveOrUpdate(stats);
+		LOGGER.info("Generate Stats:"+stats.toString());
+		closeSession();
 	}
 
 	public static void fecth_matches() {
