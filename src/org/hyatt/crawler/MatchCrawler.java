@@ -1,11 +1,13 @@
 package org.hyatt.crawler;
 
+import java.io.IOException;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.logging.Logger;
 
+import org.apache.http.client.ClientProtocolException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -62,7 +64,23 @@ public class MatchCrawler {
 
 	public static long get_matches_by_seq(long start_seq) {
 		long last_seq = -1;
-		List<models.MatchObj> matches = DOTA2_API.get_match_history_by_seq_num(start_seq, 100);
+		List<models.MatchObj> matches=null;
+		try {
+			matches = DOTA2_API.get_match_history_by_seq_num(start_seq, 100);
+		} catch (ClientProtocolException e) {
+			e.printStackTrace();
+			//如果是因为503的错误，那么需要将程序休息5分钟，然后继续执行
+			try {
+				LOGGER.info("Encounter 503 response, thread rest 5 minites.");
+				Thread.sleep(1000*60*5);
+				LOGGER.info("Re-try, and beginning from seq:"+start_seq);
+				return start_seq;
+			} catch (InterruptedException e1) {
+				e1.printStackTrace();
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		for (int mi = 1; mi < matches.size(); mi++) {
 			models.MatchObj match = matches.get(mi);
 			if (match.getHuman_players() != 10)
@@ -139,7 +157,7 @@ public class MatchCrawler {
 			start_seq = get_matches_by_seq(start_seq);
 			// 休息5秒钟
 			try {
-				LOGGER.info("Matches crawled:" + db_index + ", 10 seconds sleep after one request!");
+				LOGGER.info("Matches crawled:" + db_index + ", 5 seconds sleep after one request!");
 				Thread.sleep(1000 * 10);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
@@ -148,8 +166,8 @@ public class MatchCrawler {
 			// 每5000条休息
 			if (db_index % 100 == 0) {
 				try {
-					LOGGER.info("Matches Crawled:" + db_index + ", 10 minutes sleep after 100 request!");
-					Thread.sleep(1000 * 60 * 10);
+					LOGGER.info("Matches Crawled:" + db_index + ", 5 minutes sleep after 100 request!");
+					Thread.sleep(1000 * 60 * 5);
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}

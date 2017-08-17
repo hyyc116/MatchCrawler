@@ -28,5 +28,16 @@
 	<classpathentry kind="lib" path="lib/javax.ejb-api-3.2.jar"/>
 	<classpathentry kind="lib" path="lib/commons-logging-1.2.jar"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/bptrainer"/>
+	<classpathentry kind="lib" path="/Users/huangyong/Documents/workspace/bptrainer/lib/asm-1.0.2.jar"/>
+	<classpathentry kind="lib" path="/Users/huangyong/Documents/workspace/bptrainer/lib/asm-3.3.1.jar"/>
+	<classpathentry kind="lib" path="/Users/huangyong/Documents/workspace/bptrainer/lib/commons-codec-1.9.jar"/>
+	<classpathentry kind="lib" path="/Users/huangyong/Documents/workspace/bptrainer/lib/commons-logging-1.2.jar"/>
+	<classpathentry kind="lib" path="/Users/huangyong/Documents/workspace/bptrainer/lib/fastjson-1.2.9.jar"/>
+	<classpathentry kind="lib" path="/Users/huangyong/Documents/workspace/bptrainer/lib/fluent-hc-4.5.3.jar"/>
+	<classpathentry kind="lib" path="/Users/huangyong/Documents/workspace/bptrainer/lib/httpclient-4.5.3.jar"/>
+	<classpathentry kind="lib" path="/Users/huangyong/Documents/workspace/bptrainer/lib/httpclient-cache-4.5.3.jar"/>
+	<classpathentry kind="lib" path="/Users/huangyong/Documents/workspace/bptrainer/lib/httpclient-win-4.5.3.jar"/>
+	<classpathentry kind="lib" path="/Users/huangyong/Documents/workspace/bptrainer/lib/httpcore-4.4.6.jar"/>
+	<classpathentry kind="lib" path="/Users/huangyong/Documents/workspace/bptrainer/lib/httpmime-4.5.3.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
